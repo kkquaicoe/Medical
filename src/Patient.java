@@ -3,8 +3,8 @@
  * February 24, 2026
  * COMP167 - Section 4
  * This class represents a patient in the medical office system.
- * It stores personal details and maintains a list of the patient's
- * appointment records.
+ * It stores personal information and maintains a list of
+ * appointment records associated with the patient.
  */
 
 import java.util.ArrayList;
