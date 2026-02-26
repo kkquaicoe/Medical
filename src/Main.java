@@ -1,14 +1,16 @@
-public class Main {
-  /**
+/**
  * Student Name: YOUR FULL NAME
  * Date: February 24, 2026
  * Class / Section: COMP167-___
  * Description: Main Driver for the Medical Office application.
  */
-  public class Main {
+  
+
+public class Main {
+
     public static void main(String[] args) {
 
-        // Check that both input and output file names were provided
+        // Ensure both input and output file names are provided
         if (args.length < 2) {
             System.out.println("Usage: java Main <input_file> <output_file>");
             System.out.println("Example: java Main medicalDataSmall.txt output.txt");
@@ -20,52 +22,54 @@ public class Main {
 
         System.out.println("--- Launching Medical Office Program ---");
 
-        // Create an instance of the MedicalOffice class
+        // Create a MedicalOffice object
         MedicalOffice office = new MedicalOffice();
 
-        // Load existing data from the specified input file
+        // Load data from input file
         System.out.println("Loading data from: " + inputFile);
         office.readMedicalOfficeData(inputFile);
         System.out.println("Number of Patients Loaded: " + office.getPatientSize());
         System.out.println("Number of Physicians Loaded: " + office.getPhysicianSize());
 
-        System.out.println("\n--- Inserting Additional Records ---");
+        System.out.println("\n--- Adding Additional Records ---");
 
         // Create and register a new patient
-        Patient newPatient = new Patient(9999, "Aaron", "Anderson", 'M', "01/01/1990", "Zimmerman, Hans");
+        Patient newPatient = new Patient(
+                9999, "Aaron", "Anderson", 'M',
+                "01/01/1990", "Zimmerman, Hans"
+        );
         office.addPatient(newPatient);
 
-        // Add a physician associated with the new patient
+        // Add a new physician to the office
         office.addPhysician("Zimmerman, Hans");
 
-        // Create an appointment and attach it to the patient
+        // Create an appointment for the new patient
         Appointment newAppt = new Appointment(
                 9999, "12/25/2026", "Zimmerman, Hans",
-                72.0, 180.0, 98.6, 75, 120, 80, "Initial consultation."
+                72.0, 180.0, 98.6, 75, 120, 80,
+                "Initial consultation."
         );
+
         newPatient.addAppointment(newAppt);
 
-        System.out.println("Patient 'Aaron Anderson' successfully added.");
-        System.out.println("Physician 'Zimmerman, Hans' successfully added.");
+        System.out.println("New patient and physician successfully added.");
 
+        // Display records before sorting
         System.out.println("\n--- Records Before Sorting ---");
         System.out.println(office.toString());
 
-        // Arrange the stored data in sorted order
-        System.out.println("\n--- Organizing Records ---");
+        // Sort physicians and patients
+        System.out.println("\n--- Sorting Records ---");
         office.sortData();
 
-        // Display the sorted results
+        // Display records after sorting
         System.out.println("\n--- Records After Sorting ---");
         System.out.println(office.toString());
 
-        // Write the updated data to the output file
-        System.out.println("\nWriting updated data to: " + outputFile);
+        // Save updated data to output file
+        System.out.println("\nSaving updated data to: " + outputFile);
         office.saveMedicalOfficeData(outputFile);
 
-        System.out.println("--- Program Finished Successfully ---");
+        System.out.println("--- Program Completed Successfully ---");
     }
 }
-}
-
-
