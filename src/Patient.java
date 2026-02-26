@@ -2,8 +2,9 @@
  * Author: Kelvin Quaicoe
  * February 24, 2026
  * COMP167 - Section 4
- * Entry point for the Medical Office application.
- * Handles file input/output and demonstrates program functionality.
+ * This class represents a patient in the medical office system.
+ * It stores personal details and maintains a list of the patient's
+ * appointment records.
  */
 
 import java.util.ArrayList;
